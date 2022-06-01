@@ -1,6 +1,6 @@
 <footer class="main-footer">
         <marquee>
-            <strong>Copyright &copy; <script>document.write(new Date().getFullYear());</script> &diams; <a href="http://smkn1jenpo.sch.id/">KELUARGA BESAR Alm. MA HAYA</a>. </strong>
+            <strong>KELUARGA BESAR Alm. MA HAYA. </strong>
         </marquee>
     </footer>
 
