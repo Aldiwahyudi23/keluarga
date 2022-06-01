@@ -70,7 +70,7 @@
                 <hr>
             </div>
             <div class="col-md-12">
-                <table class="table table-bordered table-striped table-hover">
+                <table class="table table-bordered table-striped table-hover table-responsive">
                     <thead>
                         <tr>
                             <th class="ctr">No.</th>

@@ -24,7 +24,7 @@
                 <hr>
             </div>
             <div class="col-md-12">
-              <table id="example2" class="table table-bordered table-striped table-hover">
+              <table id="example2" class="table table-bordered table-striped table-hover table-responsive">
                 <thead>
                   <tr>
                     <th>No.</th>
