@@ -1,7 +1,7 @@
 @extends('template_backend.home')
-@section('heading', 'Nilai Rapot')
+@section('heading', 'Pinjaman')
 @section('page')
-  <li class="breadcrumb-item active">Nilai Rapot</li>
+  <li class="breadcrumb-item active">Pinjaman</li>
 @endsection
 @section('content')
 <div class="col-md-12">
@@ -13,7 +13,7 @@
       <!-- /.card-header -->
       <!-- form start -->
         @csrf
-        <div class="card-body">
+        <!-- <div class="card-body">
           <div class="row">
             <div class="col-md-12">
                 <table class="table" style="margin-top: -10px;">
@@ -149,7 +149,8 @@
                 </div>
             </div>
           </div>
-        </div>
+        </div> -->
+        <p>Menu Pinjam sedang dalam proses pembuatan, Harap menunggu.</p>
         <!-- /.card-body -->
     </div>
     <!-- /.card -->

@@ -75,7 +75,7 @@
                             <th class="ctr">Mei</th>
                             <th class="ctr">Juni</th>
                             <th class="ctr">Juli</th>
-                            <th class="ctr">Agustus/th>
+                            <th class="ctr">Agustus</th>
                             <th class="ctr">Total</th>
                         </tr>
                     </thead>

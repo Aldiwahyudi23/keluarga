@@ -14,31 +14,73 @@ class HariSeeder extends Seeder
     {
         DB::table('hari')->insert([
             'id' => 1,
-            'nama_hari' => 'Senin',
+            'nama_hari' => 'Januari',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
         DB::table('hari')->insert([
             'id' => 2,
-            'nama_hari' => 'Selasa',
+            'nama_hari' => 'Pebruari',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
         DB::table('hari')->insert([
             'id' => 3,
-            'nama_hari' => 'Rabu',
+            'nama_hari' => 'Maret',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
         DB::table('hari')->insert([
             'id' => 4,
-            'nama_hari' => 'Kamis',
+            'nama_hari' => 'April',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
         DB::table('hari')->insert([
             'id' => 5,
-            'nama_hari' => "Jum'at",
+            'nama_hari' => "Mei",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+        DB::table('hari')->insert([
+            'id' => 6,
+            'nama_hari' => "Juni",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+        DB::table('hari')->insert([
+            'id' => 7,
+            'nama_hari' => "Juli",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+        DB::table('hari')->insert([
+            'id' => 8,
+            'nama_hari' => "Agustus",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+        DB::table('hari')->insert([
+            'id' => 9,
+            'nama_hari' => "September",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+        DB::table('hari')->insert([
+            'id' => 10,
+            'nama_hari' => "Oktober",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+        DB::table('hari')->insert([
+            'id' => 11,
+            'nama_hari' => "November",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+        DB::table('hari')->insert([
+            'id' => 12,
+            'nama_hari' => "Desember",
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);

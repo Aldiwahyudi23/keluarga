@@ -4,9 +4,9 @@
   <li class="breadcrumb-item active">Dashboard</li>
 @endsection
 @section('content')
-    <div class="col-md-12" id="load_content">
+    <!-- <div class="col-md-12" id="load_content">
       <div class="card card-primary">
-        <div class="card-body">
+        <div class="card-body table-responsive">
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
@@ -90,7 +90,7 @@
           </table>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="col-md-6">
       <div class="card card-warning" style="min-height: 385px;">
@@ -107,7 +107,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
       <div class="card card-info">
         <div class="card-header">
           <h3 class="card-title">
@@ -130,7 +130,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 @endsection
 @section('script')
     <script>

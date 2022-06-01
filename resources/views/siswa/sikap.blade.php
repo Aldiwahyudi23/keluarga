@@ -1,19 +1,19 @@
 @extends('template_backend.home')
-@section('heading', 'Nilai Rapot')
+@section('heading', 'Bayar Kas')
 @section('page')
-  <li class="breadcrumb-item active">Nilai Rapot</li>
+  <li class="breadcrumb-item active">Bayar Kas</li>
 @endsection
 @section('content')
 <div class="col-md-12">
     <!-- general form elements -->
     <div class="card card-primary">
       <div class="card-header">
-        <h3 class="card-title">Nilai Rapot Siswa</h3>
+        <h3 class="card-title">Bayar Kas</h3>
       </div>
       <!-- /.card-header -->
       <!-- form start -->
         @csrf
-        <div class="card-body">
+        <!-- <div class="card-body">
           <div class="row">
             <div class="col-md-12">
                 <table class="table" style="margin-top: -10px;">
@@ -94,7 +94,11 @@
                 </table>
             </div>
           </div>
-        </div>
+        </div> -->
+        <p>Menu Pembayaran sedang dalam proses pembuatan, Harap menunggu.</p>
+        <br>
+        <p>Segera Hadir Menu Pinjam</p>
+        <p>Menu Pinjam bertujuan untuk mengajukan pinjaman uang kas yang ada</p>
         <!-- /.card-body -->
     </div>
     <!-- /.card -->

@@ -1,9 +1,9 @@
 @extends('template_backend.home')
 @section('heading')
-    Jadwal Kelas {{ $kelas->nama_kelas }}
+    Jadwal {{ $kelas->nama_kelas }}
 @endsection
 @section('page')
-  <li class="breadcrumb-item active">Jadwal Kelas</li>
+  <li class="breadcrumb-item active">Jadwal</li>
 @endsection
 @section('content')
 <div class="col-md-12">
@@ -12,10 +12,10 @@
           <table id="example2" class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Hari</th>
-                    <th>Mata Pelajaran</th>
-                    <th>Jam Pelajaran</th>
-                    <th>Ruang Kelas</th>
+                    <th>Bulan</th>
+                    <th>Program</th>
+                    <th>Tanggal</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +27,9 @@
                         <p class="card-text"><small class="text-muted">{{ $data->guru->nama_guru }}</small></p>
                     </td>
                     <td>{{ $data->jam_mulai }} - {{ $data->jam_selesai }}</td>
-                    <td>{{ $data->ruang->nama_ruang }}</td>
+                    <td>
+                    <a href="{{ route('sikap.siswa') }}" class="btn btn-info btn-sm mt-2"><i class="nav-icon fas fa-id-card"></i> &nbsp; Bayar</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

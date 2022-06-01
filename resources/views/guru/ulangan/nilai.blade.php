@@ -1,14 +1,14 @@
 @extends('template_backend.home')
-@section('heading', 'Entry Nilai Ulangan')
+@section('heading', 'Input Uang')
 @section('page')
-  <li class="breadcrumb-item active">Entry Nilai Ulangan</li>
+  <li class="breadcrumb-item active">Input Uang</li>
 @endsection
 @section('content')
 <div class="col-md-12">
     <!-- general form elements -->
     <div class="card card-primary">
       <div class="card-header">
-        <h3 class="card-title">Entry Nilai Ulangan</h3>
+        <h3 class="card-title">Input Uang</h3>
       </div>
       <!-- /.card-header -->
         <div class="card-body">
@@ -16,27 +16,27 @@
             <div class="col-md-12">
                 <table class="table" style="margin-top: -10px;">
                     <tr>
-                        <td>Nama Kelas</td>
+                        <td>Program</td>
                         <td>:</td>
                         <td>{{ $kelas->nama_kelas }}</td>
                     </tr>
                     <tr>
-                        <td>Wali Kelas</td>
+                        <td>Ketua</td>
                         <td>:</td>
                         <td>{{ $kelas->guru->nama_guru }}</td>
                     </tr>
                     <tr>
-                        <td>Jumlah Siswa</td>
+                        <td>Jumlah Anggota</td>
                         <td>:</td>
                         <td>{{ $siswa->count() }}</td>
                     </tr>
                     <tr>
-                        <td>Mata Pelajaran</td>
+                        <td>Jabatan</td>
                         <td>:</td>
                         <td>{{ $guru->mapel->nama_mapel }}</td>
                     </tr>
                     <tr>
-                        <td>Guru Mata Pelajaran</td>
+                        <td>Pengurus</td>
                         <td>:</td>
                         <td>{{ $guru->nama_guru }}</td>
                     </tr>
@@ -44,7 +44,7 @@
                         $bulan = date('m');
                         $tahun = date('Y');
                     @endphp
-                    <tr>
+                    <!-- <tr>
                         <td>Semester</td>
                         <td>:</td>
                         <td>
@@ -54,9 +54,9 @@
                                 {{ 'Semester Genap' }}
                             @endif
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr>
-                        <td>Tahun Pelajaran</td>
+                        <td>Tahun</td>
                         <td>:</td>
                         <td>
                             @if ($bulan > 6)
@@ -74,12 +74,12 @@
                     <thead>
                         <tr>
                             <th class="ctr">No.</th>
-                            <th>Nama Siswa</th>
-                            <th class="ctr">ULHA 1</th>
-                            <th class="ctr">ULHA 2</th>
-                            <th class="ctr">UTS</th>
-                            <th class="ctr">ULHA 3</th>
-                            <th class="ctr">UAS</th>
+                            <th>Nama Anggota</th>
+                            <th class="ctr">Mei</th>
+                            <th class="ctr">Juni</th>
+                            <th class="ctr">Juli</th>
+                            <th class="ctr">Agustus</th>
+                            <th class="ctr">September</th>
                             <th class="ctr">Aksi</th>
                         </tr>
                     </thead>
@@ -105,7 +105,7 @@
                                             <div class="text-center">{{ $data->ulangan($data->id)['ulha_1'] }}</div>
                                             <input type="hidden" name="ulha_1" class="ulha_1_{{$data->id}}" value="{{ $data->ulangan($data->id)['ulha_1'] }}">
                                         @else
-                                            <input type="text" name="ulha_1" maxlength="2" onkeypress="return inputAngka(event)" style="margin: auto;" class="form-control text-center ulha_1_{{$data->id}}" autocomplete="off">
+                                            <input type="text" name="ulha_1" maxlength="10" onkeypress="return inputAngka(event)" style="margin: auto;" class="form-control text-center ulha_1_{{$data->id}}" autocomplete="off">
                                         @endif
                                     </td>
                                     <td class="ctr">
@@ -113,7 +113,7 @@
                                             <div class="text-center">{{ $data->ulangan($data->id)['ulha_2'] }}</div>
                                             <input type="hidden" name="ulha_2" class="ulha_2_{{$data->id}}" value="{{ $data->ulangan($data->id)['ulha_2'] }}">
                                         @else
-                                            <input type="text" name="ulha_2" maxlength="2" onkeypress="return inputAngka(event)" style="margin: auto;" class="form-control text-center ulha_2_{{$data->id}}" autocomplete="off">
+                                            <input type="text" name="ulha_2" maxlength="10" onkeypress="return inputAngka(event)" style="margin: auto;" class="form-control text-center ulha_2_{{$data->id}}" autocomplete="off">
                                         @endif
                                     </td>
                                     <td class="ctr">
@@ -121,7 +121,7 @@
                                             <div class="text-center">{{ $data->ulangan($data->id)['uts'] }}</div>
                                             <input type="hidden" name="uts" class="uts_{{$data->id}}" value="{{ $data->ulangan($data->id)['uts'] }}">
                                         @else
-                                            <input type="text" name="uts" maxlength="2" onkeypress="return inputAngka(event)" style="margin: auto;" class="form-control text-center uts_{{$data->id}}" autocomplete="off">
+                                            <input type="text" name="uts" maxlength="10" onkeypress="return inputAngka(event)" style="margin: auto;" class="form-control text-center uts_{{$data->id}}" autocomplete="off">
                                         @endif
                                     </td>
                                     <td class="ctr">
@@ -129,7 +129,7 @@
                                             <div class="text-center">{{ $data->ulangan($data->id)['ulha_3'] }}</div>
                                             <input type="hidden" name="ulha_3" class="ulha_3_{{$data->id}}" value="{{ $data->ulangan($data->id)['ulha_3'] }}">
                                         @else
-                                            <input type="text" name="ulha_3" maxlength="2" onkeypress="return inputAngka(event)" style="margin: auto;" class="form-control text-center ulha_3_{{$data->id}}" autocomplete="off">
+                                            <input type="text" name="ulha_3" maxlength="10" onkeypress="return inputAngka(event)" style="margin: auto;" class="form-control text-center ulha_3_{{$data->id}}" autocomplete="off">
                                         @endif
                                     </td>
                                     <td class="ctr">
@@ -137,7 +137,7 @@
                                             <div class="text-center">{{ $data->ulangan($data->id)['uas'] }}</div>
                                             <input type="hidden" name="uas" class="uas_{{$data->id}}" value="{{ $data->ulangan($data->id)['uas'] }}">
                                         @else
-                                            <input type="text" name="uas" maxlength="2" onkeypress="return inputAngka(event)" style="margin: auto;" class="form-control text-center uas_{{$data->id}}" autocomplete="off">
+                                            <input type="text" name="uas" maxlength="10" onkeypress="return inputAngka(event)" style="margin: auto;" class="form-control text-center uas_{{$data->id}}" autocomplete="off">
                                         @endif
                                     </td>
                                     <td class="ctr sub_{{$data->id}}">

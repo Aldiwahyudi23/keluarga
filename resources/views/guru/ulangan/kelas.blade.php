@@ -11,12 +11,12 @@
             <div class="col-md-12" style="margin-top: -21px;">
                 <table class="table">
                     <tr>
-                        <td>Nama Guru</td>
+                        <td>Nama Pengurus</td>
                         <td>:</td>
                         <td>{{ $guru->nama_guru }}</td>
                     </tr>
                     <tr>
-                        <td>Mata Pelajaran</td>
+                        <td>Jabatan</td>
                         <td>:</td>
                         <td>{{ $guru->mapel->nama_mapel }}</td>
                     </tr>
@@ -28,7 +28,7 @@
                 <thead>
                   <tr>
                     <th>No.</th>
-                    <th>Nama Kelas</th>
+                    <th>Program</th>
                     <th>Aksi</th>
                 </thead>
                 <tbody>
@@ -36,7 +36,7 @@
                     <tr>
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $data[0]->rapot($val)->nama_kelas }}</td>
-                      <td><a href="{{ route('ulangan.show', Crypt::encrypt($val)) }}" class="btn btn-primary btn-sm"><i class="nav-icon fas fa-pen"></i> &nbsp; Entry Nilai</a></td>
+                      <td><a href="{{ route('ulangan.show', Crypt::encrypt($val)) }}" class="btn btn-primary btn-sm"><i class="nav-icon fas fa-pen"></i> &nbsp; Lihat</a></td>
                     </tr>
                   @endforeach
                 </tbody>
