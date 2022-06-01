@@ -14,7 +14,7 @@
           </h3>
         </div>
         <!-- /.card-header -->
-        <div class="card-body">
+        <div class="card-body table-responsive">
           <table id="example1" class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
@@ -101,7 +101,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="judul-siswa">View Siswa</h4>
+        <h4 class="modal-title" id="judul-siswa">View Program</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -109,26 +109,18 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12">
-            <div class="card-body">
+            <div class="card-body table-responsive">
               <table class="table table-bordered table-striped table-hover" width="100%">
                 <thead>
                   <tr>
-                    <th>No Induk Siswa</th>
-                    <th>Nama Siswa</th>
+                    <th>No Induk Anggota</th>
+                    <th>Nama Anggota</th>
                     <th>L/P</th>
-                    <th>Foto Siswa</th>
+                    <th>Foto</th>
                   </tr>
                 </thead>
                 <tbody id="data-siswa">
                 </tbody>
-                <tfoot>
-                  <tr>
-                    <th>No Induk Siswa</th>
-                    <th>Nama Siswa</th>
-                    <th>L/P</th>
-                    <th>Foto Siswa</th>
-                  </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.col -->
@@ -153,7 +145,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body table-responsive">
       <div class="row">
         <div class="col-md-12">
           <div class="card-body">
@@ -163,19 +155,11 @@
                   <th>Hari</th>
                   <th>Jadwal</th>
                   <th>Jam Pelajaran</th>
-                  <th>Ruang Kelas</th>
+                  <th>Bulan</th>
                 </tr>
               </thead>
               <tbody id="data-jadwal">
               </tbody>
-              <tfoot>
-                <tr>
-                  <th>Hari</th>
-                  <th>Jadwal</th>
-                  <th>Jam Pelajaran</th>
-                  <th>Ruang Kelas</th>
-                </tr>
-              </tfoot>
             </table>
           </div>
           <!-- /.col -->
@@ -192,7 +176,7 @@
 @section('script')
   <script>
     function getCreateKelas(){
-      $("#judul").text('Tambah Data Kelas');
+      $("#judul").text('Tambah Data Program');
       $('#id').val('');
       $('#form_nama').html(`
         <label for="nama_kelas">Nama Program</label>
@@ -258,7 +242,7 @@
           var siswa = "";
           if(result){
             $.each(result,function(index, val){
-              $("#judul-siswa").text('View Data Siswa ' + val.kelas);
+              $("#judul-siswa").text('View Data Program ' + val.kelas);
               siswa += "<tr>";
                 siswa += "<td>"+val.no_induk+"</td>";
                 siswa += "<td>"+val.nama_siswa+"</td>";

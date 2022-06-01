@@ -6,7 +6,7 @@
 @section('content')
 <div class="col-md-12">
     <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive">
           <table id="example1" class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>

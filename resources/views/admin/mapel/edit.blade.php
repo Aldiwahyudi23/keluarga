@@ -15,7 +15,7 @@
       <!-- form start -->
       <form action="{{ route('mapel.store') }}" method="post">
         @csrf
-        <div class="card-body">
+        <div class="card-body table-responsive">
           <div class="row">
             <div class="col-md-12">
                 <input type="hidden" name="mapel_id" value="{{ $mapel->id }}">

@@ -10,7 +10,7 @@
         <div class="card-header">
             <a href="{{ route('siswa.kelas', Crypt::encrypt($siswa->kelas_id)) }}" class="btn btn-default btn-sm"><i class='nav-icon fas fa-arrow-left'></i> &nbsp; Kembali</a>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <div class="row no-gutters ml-2 mb-2 mr-2">
                 <div class="col-md-4">
                     <img src="{{ asset($siswa->foto) }}" class="card-img img-details" alt="...">

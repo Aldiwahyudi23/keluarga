@@ -13,7 +13,7 @@
             <a href="{{ route('siswa.index') }}" class="btn btn-default btn-sm"><i class="nav-icon fas fa-arrow-left"></i> &nbsp; Kembali</a>
         </div>
         <!-- /.card-header -->
-        <div class="card-body">
+        <div class="card-body table-responsive">
           <table id="example1" class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>

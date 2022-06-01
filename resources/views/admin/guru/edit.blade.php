@@ -16,7 +16,7 @@
       <form action="{{ route('guru.update', $guru->id) }}" method="post">
         @csrf
         @method('patch')
-        <div class="card-body">
+        <div class="card-body table-responsive">
           <div class="row">
             <div class="col-md-6">
                 <div class="form-group">

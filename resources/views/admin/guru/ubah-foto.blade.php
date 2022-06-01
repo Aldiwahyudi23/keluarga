@@ -22,7 +22,7 @@
       <!-- form start -->
       <form action="{{ route('guru.update-foto', $guru->id) }}"  enctype="multipart/form-data" method="post">
         @csrf
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
