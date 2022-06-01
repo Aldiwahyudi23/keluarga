@@ -1,7 +1,7 @@
 @extends('template_backend.home')
-@section('heading', 'Data Mapel')
+@section('heading', 'Data Jabatan')
 @section('page')
-  <li class="breadcrumb-item active">Data Mapel</li>
+  <li class="breadcrumb-item active">Data Jabatan</li>
 @endsection
 @section('content')
 <div class="col-md-12">
@@ -9,7 +9,7 @@
         <div class="card-header">
             <h3 class="card-title">
                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".tambah-mapel">
-                    <i class="nav-icon fas fa-folder-plus"></i> &nbsp; Tambah Data Mapel
+                    <i class="nav-icon fas fa-folder-plus"></i> &nbsp; Tambah Data Jabatan
                 </button>
             </h3>
         </div>
@@ -19,8 +19,8 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Nama Mapel</th>
-                    <th>Paket</th>
+                    <th>Jabatan</th>
+                    <th>Program</th>
                     <th>Kelompok</th>
                     <th>Aksi</th>
                 </tr>
@@ -60,7 +60,7 @@
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
     <div class="modal-header">
-        <h4 class="modal-title">Tambah Data Mapel</h4>
+        <h4 class="modal-title">Tambah Data Jabatan</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -71,13 +71,13 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="nama_mapel">Nama Mapel</label>
+                  <label for="nama_mapel">Jabatan</label>
                   <input type="text" id="nama_mapel" name="nama_mapel" class="form-control @error('nama_mapel') is-invalid @enderror" placeholder="{{ __('Nama Mata Pelajaran') }}">
                 </div>
                 <div class="form-group">
-                  <label for="paket_id">Paket</label>
+                  <label for="paket_id">Program</label>
                   <select id="paket_id" name="paket_id" class="form-control @error('paket_id') is-invalid @enderror select2bs4">
-                    <option value="">-- Pilih Paket Mapel --</option>
+                    <option value="">-- Pilih Paket Program --</option>
                     <option value="9">Semua</option>
                     @foreach ($paket as $data)
                       <option value="{{ $data->id }}">{{ $data->ket }}</option>

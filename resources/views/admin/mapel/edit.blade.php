@@ -1,15 +1,15 @@
 @extends('template_backend.home')
-@section('heading', 'Edit Mapel')
+@section('heading', 'Edit Jabatan')
 @section('page')
   <li class="breadcrumb-item active"><a href="{{ route('mapel.index') }}">Mapel</a></li>
-  <li class="breadcrumb-item active">Edit Mapel</li>
+  <li class="breadcrumb-item active">Edit Jabatan</li>
 @endsection
 @section('content')
 <div class="col-md-12">
     <!-- general form elements -->
     <div class="card card-primary">
       <div class="card-header">
-        <h3 class="card-title">Edit Data Mapel</h3>
+        <h3 class="card-title">Edit Data Jabatan</h3>
       </div>
       <!-- /.card-header -->
       <!-- form start -->
@@ -20,13 +20,13 @@
             <div class="col-md-12">
                 <input type="hidden" name="mapel_id" value="{{ $mapel->id }}">
                 <div class="form-group">
-                  <label for="nama_mapel">Nama Mapel</label>
+                  <label for="nama_mapel">Jabatan</label>
                   <input type="text" id="nama_mapel" name="nama_mapel" value="{{ $mapel->nama_mapel }}" class="form-control @error('nama_mapel') is-invalid @enderror" placeholder="{{ __('Nama Mata Pelajaran') }}">
                 </div>
                 <div class="form-group">
-                  <label for="paket_id">Paket</label>
+                  <label for="paket_id">Program</label>
                   <select id="paket_id" name="paket_id" class="form-control @error('paket_id') is-invalid @enderror select2bs4">
-                    <option value="">-- Pilih Paket Mapel --</option>
+                    <option value="">-- Pilih Paket Program --</option>
                     <option value="9"
                         @if ($mapel->paket_id == '9')
                             selected
@@ -44,7 +44,7 @@
                 <div class="form-group">
                     <label for="kelompok">Kelompok</label>
                     <select id="kelompok" name="kelompok" class="select2bs4 form-control @error('kelompok') is-invalid @enderror">
-                        <option value="">-- Pilih Kelompok Mapel --</option>
+                        <option value="">-- Pilih Kelompok --</option>
                         <option value="A"
                             @if ($mapel->kelompok == 'A')
                                 selected
