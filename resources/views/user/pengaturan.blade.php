@@ -24,7 +24,7 @@
                     @endif
                     </div>
                     <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
-                    <p class="text-muted text-center">{{ Auth::user()->role }}</p>
+                    <!-- <p class="text-muted text-center">{{ Auth::user()->role }}</p> -->
                     @if (Auth::user()->role == 'Guru')
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
@@ -39,9 +39,6 @@
                             <li class="list-group-item">
                                 <b>No INduk</b> <a class="float-right">{{ Auth::user()->no_induk }}</a>
                             </li>
-                            <li class="list-group-item">
-                                <b>NIS</b> <a class="float-right">{{ Auth::user()->siswa(Auth::user()->no_induk)->nis }}</a>
-                            </li>
                         </ul>
                     @else
                     @endif
@@ -50,26 +47,6 @@
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->
-
-            <div class="card card-primary card-outline">
-                <div class="card-header">
-                    <h3 class="card-title">Pengaturan Akun</h3>
-                </div>
-                <div class="card-body">
-                    <table class="table" style="margin-top: -21px;">
-                    <tr>
-                        <td width="50"><i class="nav-icon fas fa-envelope"></i></td>
-                        <td>Ubah Email</td>
-                        <td width="50"><a href="{{ route('pengaturan.email') }}" class="btn btn-default btn-sm">Edit</a></td>
-                    </tr>
-                    <tr>
-                        <td width="50"><i class="nav-icon fas fa-key"></i></td>
-                        <td>Ubah Password</td>
-                        <td width="50"><a href="{{ route('pengaturan.password') }}" class="btn btn-default btn-sm">Edit</a></td>
-                    </tr>
-                    </table>
-                </div>
-            </div>
         </div>
         <!-- /.col -->
         
@@ -77,7 +54,7 @@
             <!-- About Me Box -->
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">About Me</h3>
+                    <h3 class="card-title">Profil</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -86,14 +63,14 @@
                     <hr>
 
                     @if (Auth::user()->role == 'Guru')
-                        <strong><i class="fas fa-book mr-1"></i> Guru Mapel</strong>
+                        <strong><i class="fas fa-book mr-1"></i> as</strong>
                         <p class="text-muted">{{ Auth::user()->guru(Auth::user()->id_card)->mapel->nama_mapel }}</p>
                         <hr>
                         <strong><i class="far fa-file-alt mr-1"></i> Kode Jadwal</strong>
                         <p class="text-muted">{{ Auth::user()->guru(Auth::user()->id_card)->kode }}</p>
                         <hr>
                     @elseif (Auth::user()->role == 'Siswa')
-                        <strong><i class="fas fa-home mr-1"></i> Tempat Lahir</strong>
+                        <strong><i class="fas fa-home mr-1"></i>Program</strong>
                         <p class="text-muted">{{ Auth::user()->siswa(Auth::user()->no_induk)->kelas->nama_kelas }}</p>
                         <hr>
                     @else
@@ -137,5 +114,26 @@
         <!-- /.col -->
     </div>
     <!-- /.row -->
+    <div class="row">
+    <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Pengaturan Akun</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table" style="margin-top: -21px;">
+                    <tr>
+                        <td width="50"><i class="nav-icon fas fa-envelope"></i></td>
+                        <td>Ubah Email</td>
+                        <td width="50"><a href="{{ route('pengaturan.email') }}" class="btn btn-default btn-sm">Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td width="50"><i class="nav-icon fas fa-key"></i></td>
+                        <td>Ubah Password</td>
+                        <td width="50"><a href="{{ route('pengaturan.password') }}" class="btn btn-default btn-sm">Edit</a></td>
+                    </tr>
+                    </table>
+                </div>
+            </div>
+    </div>
 </div>
 @endsection
