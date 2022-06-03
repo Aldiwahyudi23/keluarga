@@ -259,6 +259,12 @@
                             <p>Data Kas</p>
                         </a>
                     </li>
+                    <!-- <li class="nav-item">
+                        <a href="{{ route('pemasukan.siswa') }}" class="nav-link" id="PemasukanSiswa">
+                            <i class="fas fa-file-alt nav-icon"></i>
+                            <p>Data Kas1</p>
+                        </a>
+                    </li> -->
                     <li class="nav-item">
                         <a href="{{ route('sikap.siswa') }}" class="nav-link" id="SikapSiswa">
                             <i class="fas fa-file-alt nav-icon"></i>

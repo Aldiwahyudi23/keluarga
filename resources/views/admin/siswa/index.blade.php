@@ -9,11 +9,11 @@
         <div class="card-header">
             <h3 class="card-title">
                 <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg">
-                    <i class="nav-icon fas fa-folder-plus"></i> &nbsp; Tambah Data
+                    <i class="nav-icon fas fa-folder-plus"></i> &nbsp; Tambah
                 </button>
-                <a href="{{ route('siswa.export_excel') }}" class="btn btn-success btn-sm my-3" target="_blank"><i class="nav-icon fas fa-file-export"></i> &nbsp; EXPORT EXCEL</a>
+                <a href="{{ route('siswa.export_excel') }}" class="btn btn-success btn-sm my-3" target="_blank"><i class="nav-icon fas fa-file-export"></i> &nbsp; EXPORT</a>
                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#importExcel">
-                    <i class="nav-icon fas fa-file-import"></i> &nbsp; IMPORT EXCEL
+                    <i class="nav-icon fas fa-file-import"></i> &nbsp; IMPORT
                 </button>
                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#dropTable">
                     <i class="nav-icon fas fa-minus-circle"></i> &nbsp; Drop
@@ -25,7 +25,7 @@
 				<form method="post" action="{{ route('siswa.import_excel') }}" enctype="multipart/form-data">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+							<h5 class="modal-title" id="exampleModalLabel">Import</h5>
 						</div>
 						<div class="modal-body">
 							@csrf
@@ -88,7 +88,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->nama_kelas }}</td>
                         <td>
-                            <a href="{{ route('siswa.kelas', Crypt::encrypt($data->id)) }}" class="btn btn-info btn-sm"><i class="nav-icon fas fa-search-plus"></i> &nbsp; Ditails</a>
+                            <a href="{{ route('siswa.kelas', Crypt::encrypt($data->id)) }}" class="btn btn-info btn-sm"><i class="nav-icon fas fa-search-plus"></i> &nbsp; Detail</a>
                         </td>
                     </tr>
                 @endforeach

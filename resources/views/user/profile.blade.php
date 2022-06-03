@@ -15,7 +15,7 @@
       <!-- form start -->
       <form action="{{ route('pengaturan.ubah-profile') }}" method="post">
         @csrf
-        <div class="card-body">
+        <div class="card-body table-responsive">
           @if (Auth::user()->role == "Guru")
             <div class="row">
               <input type="hidden" name="role" value="{{ Auth::user()->guru(Auth::user()->id_card)->role }}">

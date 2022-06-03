@@ -98,6 +98,45 @@
           </div>
         </div>
         <!-- /.card-body -->
+        <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Data Pemasukan</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered" id="Pemsukansiswa">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Input Data</th>
+                            <th>Tanggal</th>
+                            <th>Perincian</th>
+                            <th>Jumlah (Rp)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($Pemasukan as $data)
+                            <tr>
+                                <?php $data = $data[0]; ?>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $data->jumlah }}</td>
+                                <td>{{ $data->jumlah }}</td>
+                                <td>{{ $data->jumlah }}</td>
+                                <td>{{ $data->jumlah }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="4" class="text-center"><b>Total</b></th>
+
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
     <!-- /.card -->
 </div>
 @endsection

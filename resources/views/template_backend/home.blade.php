@@ -100,7 +100,7 @@
     </style>
 </head>
 <!-- sidebar-collapse -->
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-open">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
     @include('template_backend.navbar')

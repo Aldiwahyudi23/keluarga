@@ -52,6 +52,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/ulangan/siswa', 'UlanganController@siswa')->name('ulangan.siswa');
     Route::get('/sikap/siswa', 'SikapController@siswa')->name('sikap.siswa');
     Route::get('/rapot/siswa', 'RapotController@siswa')->name('rapot.siswa');
+    Route::get('/pemasukan/siswa', 'PemasukanController@siswa')->name('pemasukan.siswa');
   });
 
   Route::middleware(['guru'])->group(function () {
