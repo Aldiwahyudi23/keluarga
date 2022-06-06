@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pemasukan extends Model
 {
-    protected $fillable = ['siswa_id', 'kelas_id', 'guru_id', 'mapel_id', 'jumlah', 'keterangan', 'tanggal'];
+    protected $fillable = ['id','siswa_id', 'kelas_id', 'guru_id', 'mapel_id', 'jumlah', 'keterangan', 'tanggal'];
 
     protected $table = 'pemasukan';
 }

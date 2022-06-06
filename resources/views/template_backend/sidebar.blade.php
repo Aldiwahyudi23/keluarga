@@ -2,8 +2,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link" style="">
-        <img src="{{ asset('img/favicon.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-light">KAS</span>
+        <img src="{{ asset('img/logo.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
+        <span class="brand-text font-weight-light">KELUARGA</span>
     </a>
 
     <!-- Sidebar -->
@@ -132,43 +132,49 @@
                         </li>
                     @else
                     @endif
-                    <li class="nav-item">
-                        <a href="{{ route('guru.absensi') }}" class="nav-link" id="AbsensiGuru">
-                            <i class="fas fa-calendar-check nav-icon"></i>
-                            <p>Absensi Guru</p>
-                        </a>
-                    </li>
-                    <li class="nav-item has-treeview" id="liNilai">
-                        <a href="#" class="nav-link" id="Nilai">
+                    <li class="nav-item has-treeview" id="likas">
+                        <a href="#" class="nav-link" id="kas">
                             <i class="nav-icon fas fa-file-signature"></i>
                             <p>
-                                Nilai
+                                Kas
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview ml-4">
                             <li class="nav-item">
-                                <a href="{{ route('ulangan-kelas') }}" class="nav-link" id="Ulangan">
+                                <a href="{{ route('kas.bayar') }}" class="nav-link" id="Input">
                                     <i class="fas fa-file-alt nav-icon"></i>
-                                    <p>Nilai Ulangan</p>
+                                    <p>Input kas</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('sikap-kelas') }}" class="nav-link" id="Sikap">
+                                <a href="{{ route('kas') }}" class="nav-link" id="DataKas">
                                     <i class="fas fa-file-alt nav-icon"></i>
-                                    <p>Nilai Sikap</p>
+                                    <p>Data kas</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('rapot-kelas') }}" class="nav-link" id="Rapot">
                                     <i class="fas fa-file-alt nav-icon"></i>
-                                    <p>Nilai Rapot</p>
+                                    <p>Data Pinjam</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('predikat') }}" class="nav-link" id="Deskripsi">
                                     <i class="fas fa-file-alt nav-icon"></i>
-                                    <p>Deskripsi Predikat</p>
+                                    <p>Data Darurat</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('predikat') }}" class="nav-link" id="Deskripsi">
+                                    <i class="fas fa-file-alt nav-icon"></i>
+                                    <p>Data Amal</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('predikat') }}" class="nav-link" id="Deskripsi">
+                                    <i class="fas fa-file-alt nav-icon"></i>
+                                    <p>Laporan</p>
                                 </a>
                             </li>
                         </ul>
@@ -198,6 +204,7 @@
                                     <p>Input Uang</p>
                                 </a>
                     </li>
+                    
                      <!-- <li class="nav-item has-treeview" id="liNilaiGuru">
                         <a href="#" class="nav-link" id="NilaiGuru">
                             <i class="nav-icon fas fa-file-signature"></i>
@@ -247,36 +254,24 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="{{ route('jadwal.siswa') }}" class="nav-link" id="JadwalSiswa">
                             <i class="fas fa-calendar-alt nav-icon"></i>
                             <p>Jadwal</p>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
-                        <a href="{{ route('ulangan.siswa') }}" class="nav-link" id="UlanganSiswa">
+                        <a href="{{ route('show.siswa') }}" class="nav-link" id="DataKas">
                             <i class="fas fa-file-alt nav-icon"></i>
                             <p>Data Kas</p>
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a href="{{ route('pemasukan.siswa') }}" class="nav-link" id="PemasukanSiswa">
-                            <i class="fas fa-file-alt nav-icon"></i>
-                            <p>Data Kas1</p>
-                        </a>
-                    </li> -->
                     <li class="nav-item">
-                        <a href="{{ route('sikap.siswa') }}" class="nav-link" id="SikapSiswa">
+                        <a href="{{ route('bayar.siswa') }}" class="nav-link" id="Input">
                             <i class="fas fa-file-alt nav-icon"></i>
                             <p>Bayar</p>
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a href="{{ route('rapot.siswa') }}" class="nav-link" id="RapotSiswa">
-                            <i class="fas fa-file-alt nav-icon"></i>
-                            <p>Pinjam</p>
-                        </a>
-                    </li> -->
                 @else
                     <li class="nav-item has-treeview">
                         <a href="{{ url('/') }}" class="nav-link" id="Home">

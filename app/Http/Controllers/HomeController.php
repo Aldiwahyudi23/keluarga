@@ -11,6 +11,8 @@ use App\Mapel;
 use App\User;
 use App\Paket;
 use App\Pengumuman;
+use App\Pemasukan;
+use App\Pengluaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -33,12 +35,60 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $jadwal = Jadwal::count();
+        $guru = Guru::count();
+        $gurulk = Guru::where('jk', 'L')->count();
+        $gurupr = Guru::where('jk', 'P')->count();
+        $siswa = Siswa::count();
+        $siswalk = Siswa::where('jk', 'L')->count();
+        $siswapr = Siswa::where('jk', 'P')->count();
+        $mapel = Mapel::count();
+        $user = User::count();
+        $paket = Paket::all();
+        $kelas = Kelas::all();
+
+        $pemasukan = Pemasukan::all();
+        $jumlah_pemasukan = 0;
+        foreach ($pemasukan as $item) {
+            $jumlah_pemasukan += $item->jumlah;
+        }
+
+        $peminjaman = Pemasukan::whereBetween('tanggal',[date('Y-m-01'), date('Y-m-31')])->get();;
+        $jumlah_pinjam = 0;
+        foreach ($peminjaman as $item) {
+            $jumlah_pinjam += $item->jumlah;
+            $pinjam = (20/100)*$jumlah_pinjam;
+        }
+
+        $pengluaran = Pengluaran::all();
+        $jumlah_pengluaran = 0;
+        foreach ($pengluaran as $data) {
+            $jumlah_pengluaran += $data->jumlah;
+        }
+
         $hari = date('w');
         $jam = date('H:i');
         $jadwal = Jadwal::OrderBy('jam_mulai')->OrderBy('jam_selesai')->OrderBy('kelas_id')->where('hari_id', $hari)->where('jam_mulai', '<=', $jam)->where('jam_selesai', '>=', $jam)->get();
         $pengumuman = Pengumuman::first();
         $kehadiran = Kehadiran::all();
-        return view('home', compact('jadwal', 'pengumuman', 'kehadiran'));
+        return view('home', compact('jadwal',
+                            'pengumuman',
+                            'jadwal',
+                            'guru',
+                            'gurulk',
+                            'gurupr',
+                            'mapel',
+                            'siswa',
+                            'siswalk',
+                            'siswapr',
+                            'kelas',
+                            'user',
+                            'paket',
+                            'pemasukan',
+                            'jumlah_pemasukan',
+                            'jumlah_pengluaran',
+                            'pinjam',
+                            'kehadiran'));
     }
 
     public function admin()

@@ -9,6 +9,7 @@ use App\Kelas;
 use App\Jadwal;
 use App\Nilai;
 use App\Ulangan;
+use App\Pemasukan;
 use App\Rapot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -194,6 +195,9 @@ class UlanganController extends Controller
         $kelas = Kelas::findorfail($siswa->kelas_id);
         $jadwal = Jadwal::where('kelas_id', $kelas->id)->orderBy('mapel_id')->get();
         $mapel = $jadwal->groupBy('mapel_id');
-        return view('siswa.ulangan', compact('siswa', 'kelas', 'mapel'));
+
+        $anggota = Siswa::where('id', Auth::user()->id)->first();
+        $pemasukan = Pemasukan::where('siswa_id', $anggota->id)->orderBy('siswa_id')->get();
+        return view('siswa.ulangan', compact('siswa', 'kelas', 'mapel','pemasukan'));
     }
 }

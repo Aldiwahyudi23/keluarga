@@ -19,6 +19,7 @@ class CreateJadwalTable extends Migration
             $table->integer('kelas_id');
             $table->integer('mapel_id');
             $table->integer('guru_id');
+            $table->integer('pemasukan_id');
             $table->time('jam_mulai');
             $table->time('jam_selesai');
             $table->integer('ruang_id');

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('page', 'Login')
+@section('page', '  Keluaraga Alm. Ma HAYA')
 @section('content')
 <div class="card-body login-card-body">
   <p class="login-box-msg">Mangga Lebet</p>
@@ -20,7 +20,7 @@
       @enderror
     </div>
     <div class="input-group mb-3">
-      <input id="password" type="password" placeholder="{{ __('Kata Sansi') }}" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password" disabled>
+      <input id="password" type="password" placeholder="{{ __('Kata Sandi') }}" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password" disabled>
       <div class="input-group-append">
         <div class="input-group-text">
           <span class="fas fa-lock"></span>

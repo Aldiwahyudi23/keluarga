@@ -28,7 +28,8 @@
                     </td>
                     <td>{{ $data->jam_mulai }} - {{ $data->jam_selesai }}</td>
                     <td>
-                    <a href="{{ route('sikap.siswa') }}" class="btn btn-info btn-sm mt-2"><i class="nav-icon fas fa-id-card"></i> &nbsp; Bayar</a>
+                    <!-- <a href="{{ route('sikap.siswa') }}" type="button" id="btnClick" class="btn btn-info btn-sm mt-2"><i class="nav-icon fas fa-id-card"></i> &nbsp; Bayar</a> -->
+                    <input type="button" value="Dellete" id="btnClick">	
                     </td>
                 </tr>
                 @endforeach
@@ -42,6 +43,16 @@
 <!-- /.col -->
 @endsection
 @section('script')
+<script>
+	var button = document.getElementById('btnClick');
+	var pesan = 2;
+	if (pesan == 0) {
+        button.disabled = false;	
+    }
+	else {
+        button.disabled = true;
+	}
+  </script>
     <script>
         $("#JadwalSiswa").addClass("active");
     </script>

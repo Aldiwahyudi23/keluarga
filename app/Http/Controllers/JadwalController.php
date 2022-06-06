@@ -67,6 +67,7 @@ class JadwalController extends Controller
                 'id' => $request->jadwal_id
             ],
             [
+                'pemasukan_id' => '0',
                 'hari_id' => $request->hari_id,
                 'kelas_id' => $request->kelas_id,
                 'mapel_id' => $guru->mapel_id,
@@ -212,7 +213,7 @@ class JadwalController extends Controller
     {
         $siswa = Siswa::where('no_induk', Auth::user()->no_induk)->first();
         $kelas = Kelas::findorfail($siswa->kelas_id);
-        $jadwal = Jadwal::orderBy('hari_id')->OrderBy('jam_mulai')->where('kelas_id', $kelas->id)->get();
+        $jadwal = Jadwal::orderBy('hari_id')->OrderBy('jam_mulai')->OrderBy('pemasukan_id')->where('kelas_id', $kelas->id)->get();
         return view('siswa.jadwal', compact('jadwal', 'kelas', 'siswa'));
     }
 

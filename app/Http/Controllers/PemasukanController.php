@@ -30,7 +30,7 @@ class PemasukanController extends Controller
         $kelas = Kelas::findorfail($siswa->kelas_id);
         $jadwal = Jadwal::where('kelas_id', $kelas->id)->orderBy('mapel_id')->get();
         $mapel = $jadwal->groupBy('mapel_id');
-        $Pemasukan = Pemasukan::all();
+        $Pemasukan = Pemasukan::where('siswa_id',$siswa->id)->groupBy('siswa_id')->get();
         return view('siswa.pemasukan', compact('siswa', 'kelas', 'mapel','Pemasukan'));
     }
 }

@@ -4,6 +4,60 @@
   <li class="breadcrumb-item active">Dashboard</li>
 @endsection
 @section('content')
+<div class="col-lg-4 col-6">
+  <div class="small-box bg-info">
+    <div class="">
+      @php
+      $saldo = $jumlah_pemasukan;
+        $saldo -= $jumlah_pengluaran;
+    @endphp
+    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ "Rp " . number_format($saldo,2,',','.') }}</div>
+          <p>Saldo</p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-calendar-alt nav-icon"></i>
+        </div>
+        <a href="{{ route('jadwal.index') }}" class="small-box-footer">Saldo Adalah Total sisa uang yang ada <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+<div class="col-lg-4 col-6">
+  <div class="small-box bg-success">
+    <div class="">
+
+    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ "Rp " . number_format($jumlah_pemasukan,2,',','.') }}</div>
+          <p>Pemasukan</p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-calendar-alt nav-icon"></i>
+        </div>
+        <a href="{{ route('jadwal.index') }}" class="small-box-footer">Pemasukan Adalah jumlah Uang yang terkumpul semuanya<i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+<div class="col-lg-4 col-6">
+  <div class="small-box bg-secondary">
+    <div class="">
+    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ "Rp " . number_format($jumlah_pengluaran,2,',','.') }}</div>
+          <p>Pengluaran</p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-calendar-alt nav-icon"></i>
+        </div>
+        <a href="{{ route('jadwal.index') }}" class="small-box-footer">Pengluaran Adalah Jumlah Uang dari berbagai pengluaran <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+<div class="col-lg-4 col-6">
+  <div class="small-box bg-warning">
+    <div class="">
+    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $guru }}</div>
+          <p>Pengurus</p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-calendar-alt nav-icon"></i>
+        </div>
+        <a href="{{ route('jadwal.index') }}" class="small-box-footer"> Pengurus <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+
     <!-- <div class="col-md-12" id="load_content">
       <div class="card card-primary">
         <div class="card-body table-responsive">
@@ -99,7 +153,7 @@
             Pengumuman
           </h3>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
           <div class="tab-content p-0">
             {!! $pengumuman->isi !!}
           </div>
@@ -231,5 +285,71 @@
       $("#Dashboard").addClass("active");
       $("#liDashboard").addClass("menu-open");
       $("#Home").addClass("active");
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            'use strict'
+
+            var pieChartCanvasGuru = $('#pieChartGuru').get(0).getContext('2d')
+            var pieDataGuru        = {
+                labels: [
+                    'Laki-laki', 
+                    'Perempuan',
+                ],
+                datasets: [
+                    {
+                    data: [{{ $gurulk }}, {{ $gurupr }}],
+                    backgroundColor : ['#007BFF', '#DC3545'],
+                    }
+                ]
+            }
+            var pieOptions     = {
+                legend: {
+                    display: false
+                }
+            }
+            var pieChart = new Chart(pieChartCanvasGuru, {
+                type: 'doughnut',
+                data: pieDataGuru,
+                options: pieOptions      
+            })
+
+            var pieChartCanvasSiswa = $('#pieChartSiswa').get(0).getContext('2d')
+            var pieDataSiswa        = {
+                labels: [
+                    'Laki-laki', 
+                    'Perempuan',
+                ],
+                datasets: [
+                    {
+                    data: [{{ $siswalk }}, {{ $siswapr }}],
+                    backgroundColor : ['#007BFF', '#DC3545'],
+                    }
+                ]
+            }
+            var pieOptions     = {
+                legend: {
+                    display: false
+                }
+            }
+            var pieChart = new Chart(pieChartCanvasSiswa, {
+                type: 'doughnut',
+                data: pieDataSiswa,
+                options: pieOptions      
+            })
+
+            
+            var pieOptions     = {
+                legend: {
+                    display: false
+                }
+            }
+            var pieChart = new Chart(pieChartCanvasPaket, {
+                type: 'doughnut',
+                data: pieDataPaket,
+                options: pieOptions      
+            })
+        })
+        
     </script>
 @endsection

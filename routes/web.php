@@ -48,11 +48,15 @@ Route::middleware(['auth'])->group(function () {
   Route::post('/pengaturan/ubah-password', 'UserController@ubah_password')->name('pengaturan.ubah-password');
 
   Route::middleware(['siswa'])->group(function () {
-    Route::get('/jadwal/siswa', 'JadwalController@siswa')->name('jadwal.siswa');
-    Route::get('/ulangan/siswa', 'UlanganController@siswa')->name('ulangan.siswa');
-    Route::get('/sikap/siswa', 'SikapController@siswa')->name('sikap.siswa');
-    Route::get('/rapot/siswa', 'RapotController@siswa')->name('rapot.siswa');
-    Route::get('/pemasukan/siswa', 'PemasukanController@siswa')->name('pemasukan.siswa');
+    Route::get('/jadwal/anggota', 'JadwalController@siswa')->name('jadwal.siswa');
+    Route::get('/ulangan/anggota', 'UlanganController@siswa')->name('ulangan.siswa');
+    Route::get('/sikap/anggota', 'SikapController@siswa')->name('sikap.siswa');
+    Route::get('/rapot/anggota', 'RapotController@siswa')->name('rapot.siswa');
+    Route::get('/pemasukan/anggota', 'KasController@anggota_index')->name('pemasukan.siswa');
+    Route::get('/pemasukan/anggota/detail', 'KasController@anggota_show')->name('show.siswa');
+    Route::get('/bayar/anggota', 'KasController@anggota_input')->name('bayar.siswa');
+    Route::post('/bayar/store', 'KasController@anggota_store')->name('bayar.store');
+    Route::post('/bayar/siswa', 'KasController@anggota_store')->name('bayar.store');
   });
 
   Route::middleware(['guru'])->group(function () {
@@ -131,5 +135,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/rapot-show/{id}', 'RapotController@rapot')->name('rapot-show');
     Route::get('/predikat', 'NilaiController@create')->name('predikat');
     Route::resource('/user', 'UserController');
+    
+    Route::get('/kas', 'KasController@index')->name('kas');
+    Route::get('/kas/bayar', 'KasController@input')->name('kas.bayar');
+    Route::get('/kas/show/{nama_hari}', 'KasController@show')->name('kas.show');
+    Route::post('/kas/store', 'KasController@store')->name('kas.store');
+
   });
 });
