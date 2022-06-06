@@ -53,13 +53,6 @@ class HomeController extends Controller
             $jumlah_pemasukan += $item->jumlah;
         }
 
-        $peminjaman = Pemasukan::whereBetween('tanggal',[date('Y-m-01'), date('Y-m-31')])->get();;
-        $jumlah_pinjam = 0;
-        foreach ($peminjaman as $item) {
-            $jumlah_pinjam += $item->jumlah;
-            $pinjam = (20/100)*$jumlah_pinjam;
-        }
-
         $pengluaran = Pengluaran::all();
         $jumlah_pengluaran = 0;
         foreach ($pengluaran as $data) {
@@ -87,7 +80,6 @@ class HomeController extends Controller
                             'pemasukan',
                             'jumlah_pemasukan',
                             'jumlah_pengluaran',
-                            'pinjam',
                             'kehadiran'));
     }
 
