@@ -17,7 +17,7 @@
         <div class="icon">
           <i class="fas fa-calendar-alt nav-icon"></i>
         </div>
-        <a href="{{ route('jadwal.index') }}" class="small-box-footer">Saldo Adalah Total sisa uang yang ada <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{ route('jadwal.index') }}" class="small-box-footer">Total sisa uang yang ada <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
 <div class="col-lg-4 col-6">
@@ -30,7 +30,7 @@
         <div class="icon">
           <i class="fas fa-calendar-alt nav-icon"></i>
         </div>
-        <a href="{{ route('jadwal.index') }}" class="small-box-footer">Pemasukan Adalah jumlah Uang yang terkumpul semuanya<i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{ route('jadwal.index') }}" class="small-box-footer">Jumlah Uang yang terkumpul semuanya<i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
 <div class="col-lg-4 col-6">
@@ -42,7 +42,7 @@
         <div class="icon">
           <i class="fas fa-calendar-alt nav-icon"></i>
         </div>
-        <a href="{{ route('jadwal.index') }}" class="small-box-footer">Pengluaran Adalah Jumlah Uang dari berbagai pengluaran <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{ route('jadwal.index') }}" class="small-box-footer">Jumlah Uang dari berbagai pengluaran <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
 <div class="col-lg-4 col-6">
@@ -285,71 +285,5 @@
       $("#Dashboard").addClass("active");
       $("#liDashboard").addClass("menu-open");
       $("#Home").addClass("active");
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            'use strict'
-
-            var pieChartCanvasGuru = $('#pieChartGuru').get(0).getContext('2d')
-            var pieDataGuru        = {
-                labels: [
-                    'Laki-laki', 
-                    'Perempuan',
-                ],
-                datasets: [
-                    {
-                    data: [{{ $gurulk }}, {{ $gurupr }}],
-                    backgroundColor : ['#007BFF', '#DC3545'],
-                    }
-                ]
-            }
-            var pieOptions     = {
-                legend: {
-                    display: false
-                }
-            }
-            var pieChart = new Chart(pieChartCanvasGuru, {
-                type: 'doughnut',
-                data: pieDataGuru,
-                options: pieOptions      
-            })
-
-            var pieChartCanvasSiswa = $('#pieChartSiswa').get(0).getContext('2d')
-            var pieDataSiswa        = {
-                labels: [
-                    'Laki-laki', 
-                    'Perempuan',
-                ],
-                datasets: [
-                    {
-                    data: [{{ $siswalk }}, {{ $siswapr }}],
-                    backgroundColor : ['#007BFF', '#DC3545'],
-                    }
-                ]
-            }
-            var pieOptions     = {
-                legend: {
-                    display: false
-                }
-            }
-            var pieChart = new Chart(pieChartCanvasSiswa, {
-                type: 'doughnut',
-                data: pieDataSiswa,
-                options: pieOptions      
-            })
-
-            
-            var pieOptions     = {
-                legend: {
-                    display: false
-                }
-            }
-            var pieChart = new Chart(pieChartCanvasPaket, {
-                type: 'doughnut',
-                data: pieDataPaket,
-                options: pieOptions      
-            })
-        })
-        
     </script>
 @endsection

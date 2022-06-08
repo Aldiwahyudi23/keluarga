@@ -47,6 +47,12 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/pengaturan/password', 'UserController@edit_password')->name('pengaturan.password');
   Route::post('/pengaturan/ubah-password', 'UserController@ubah_password')->name('pengaturan.ubah-password');
 
+  Route::get('/pengluaran/amal', 'PengluaranController@amal')->name('pengluaran.amal');
+  Route::get('/pengluaran/darurat', 'PengluaranController@darurat')->name('pengluaran.darurat');
+  Route::get('/pengluaran/acara', 'PengluaranController@acara')->name('pengluaran.acara');
+  Route::get('/pengluaran/lainn', 'PengluaranController@lain')->name('pengluaran.lain');
+  Route::get('/pengluaran/kas', 'PengluaranController@kas')->name('pengluaran.kas');
+
   Route::middleware(['siswa'])->group(function () {
     Route::get('/jadwal/anggota', 'JadwalController@siswa')->name('jadwal.siswa');
     Route::get('/ulangan/anggota', 'UlanganController@siswa')->name('ulangan.siswa');
@@ -57,6 +63,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/bayar/anggota', 'KasController@anggota_input')->name('bayar.siswa');
     Route::post('/bayar/store', 'KasController@anggota_store')->name('bayar.store');
     Route::post('/bayar/siswa', 'KasController@anggota_store')->name('bayar.store');
+
+    Route::post('/bayar/pengajuan', 'KasController@anggota_pengajuan')->name('pengajuan_pemasukan');
+
+    Route::get('/pengluaran/pinjamanan', 'PengluaranController@pinjam')->name('pengluaran.pinjaman');
+    Route::get('/pengajuan/pinjaman', 'PengluaranController@peminjaman')->name('pengajuan.pinjaman');
+    Route::post('/pengajuan/pinjaman/store', 'PengluaranController@peminjaman_store')->name('peminjaman.store');
+    Route::get('/pengajuan/pinjaman/detail', 'PengluaranController@peminjaman_detail')->name('pengluaran.pinjaman.detail');
   });
 
   Route::middleware(['guru'])->group(function () {
@@ -139,7 +152,31 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/kas', 'KasController@index')->name('kas');
     Route::get('/kas/bayar', 'KasController@input')->name('kas.bayar');
     Route::get('/kas/show/{nama_hari}', 'KasController@show')->name('kas.show');
+    
+    Route::get('/kas/data_pengluaran', 'DataPengluaranController@index')->name('kas.data_pengluaran');
+    Route::post('/data_pengluaran/store', 'DataPengluaranController@store')->name('datapengluaran.store');
+    
+    Route::get('/kas/pengluaran/', 'PengluaranController@input')->name('kas.pengluaran');
+    Route::post('/pengluaran/store/', 'PengluaranController@store')->name('pengluaran.store');
+    Route::get('/pengluaran/dana/', 'PengluaranController@index')->name('data.pengluaran');
+    Route::get('/pengluaran/show/{name}', 'PengluaranController@show')->name('show.pengluaran');
+    
+    Route::get('/pengluaran/pinjaman', 'PengluaranController@pinjam')->name('pengluaran.pinjam');
+    Route::post('/pengluaran/pinjaman/store', 'PengluaranController@pengluaran_pinjaman')->name('peminjaman.pinjam');
+
+    // Pengajuan
+    Route::get('/pengajuan', 'KasController@pengajuan')->name('pengajuan');
+    Route::get('/pengajuan/detail/{id}', 'KasController@pengajuan_detail')->name('pengajuan.detail');
     Route::post('/kas/store', 'KasController@store')->name('kas.store');
+    Route::get('/pengajuan/peminjaman', 'KasController@peminjaman')->name('peminjaman');
+    Route::get('/pengajuan/pinjaman/detail/{id}', 'KasController@pinjaman_detail')->name('pengajuan.pinjaman.detail');
+    Route::post('/simpan/pinjaman', 'PengluaranController@pengluaran_pinjaman')->name('simpan.pinjaman');
+
+    Route::get('/pengajuan/hapus/{id}', 'KasController@pengajuan_hapus')->name('pengajuan.hapus');
+
+// Pesan
+    Route::post('/pesan/penolakan/pinjaman', 'PesanController@store')->name('pesan.store');
+
 
   });
 });

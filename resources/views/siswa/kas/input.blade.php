@@ -16,7 +16,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-            <form action="{{ route('bayar.store') }}" method="post">
+            <form action="{{ route('pengajuan_pemasukan') }}" method="post">
             @csrf
             @foreach ($anggota as $data)
                 <input type="hidden" name="anggota_id" value="{{ $data->id }}">

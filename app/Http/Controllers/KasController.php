@@ -13,6 +13,8 @@ use App\Siswa;
 use App\Kelas;
 use App\Kehadiran;
 use App\Pemasukan;
+use App\Pengajuan;
+use App\Pengluaran;
 use Illuminate\Support\Facades\Crypt;
 
 use Illuminate\Http\Request;
@@ -25,8 +27,8 @@ class KasController extends Controller
     {
         $tahun=date('Y');
         $hari = Hari::all();
-        $siswa = Siswa::all();
-        return view ('admin.kas.index', compact('siswa','hari','tahun'));
+        $pemasukan = Pemasukan::all();
+        return view ('admin.kas.index', compact('pemasukan','hari','tahun'));
     }
     public function input()
     {
@@ -43,6 +45,31 @@ class KasController extends Controller
         // $pemasukan = Pemasukan::groupBy('tanggal');
         return view ('admin.kas.show', compact('siswa','pemasukan'));
     }
+    public function pengajuan()
+    {
+        $pengajuan = Pengajuan::where('kategori','pemasukan')->orderBy('kategori')->get();
+        return view('admin.kas.pengajuan.index', compact('pengajuan'));
+    }
+    public function peminjaman()
+    {
+        $pengajuan = Pengajuan::where('kategori','pengeluaran')->orderBy('kategori')->get();
+        return view('admin.kas.pengajuan.indexpinjam', compact('pengajuan'));
+    }
+    public function pengajuan_detail($id)
+    {
+        $id = Crypt::decrypt($id);
+        $pengajuan = Pengajuan::findorfail($id);
+
+        return view('admin.kas.pengajuan.detail', compact('pengajuan'));
+    }
+    public function pinjaman_detail($id)
+    {
+        $id = Crypt::decrypt($id);
+        $pengajuan = Pengajuan::findorfail($id);
+
+        return view('admin.kas.pengajuan.peminjaman', compact('pengajuan'));
+    }
+
     public function store(Request $request)
     {
         $tahun=date('M');
@@ -66,9 +93,12 @@ class KasController extends Controller
                 'keterangan' => $request->keterangan,
             ]
         );
+        $pengajuan = Pengajuan::find($request->id_pengajuan);
+        $pengajuan->delete();
 
-        return redirect()->back()->with('success', 'Data mapel berhasil diperbarui!');
+        return redirect('pengajuan')->with('success', 'Data anu tos di tarima bakal lebet kana database !');
     }
+
     // siswa
 
     public function anggota_index()
@@ -125,5 +155,33 @@ class KasController extends Controller
         );
 
         return redirect('pemasukan/anggota/detail')->with('success', 'Data mapel berhasil ditambah!');
+    }
+    public function anggota_pengajuan(Request $request)
+    {
+        $anggota = Siswa::where('id', Auth::user()->id)->first();
+        $this->validate($request, [
+            'jumlah' => 'required',
+            'tanggal' => 'required',
+            'keterangan' => 'required'
+        ]);
+
+       Pengajuan ::UpdateOrCreate(
+            [
+                'id' => $request->id
+            ],
+            [
+                'kelas_id' => '3',
+                'mapel_id' => '3',
+                'guru_id' => '3',
+                'kategori' => 'pemasukan',
+                'program' => '0',
+                'siswa_id' =>$anggota->id,
+                'jumlah' => $request->jumlah,
+                'tanggal' => $request->tanggal,
+                'keterangan' => $request->keterangan,
+            ]
+        );
+
+        return redirect('pemasukan/anggota/detail')->with('success', 'Data anu nembe lebet bade di parios heula ku pengurus. data, lebet pami atos di tarima ku pengurus');
     }
 }

@@ -144,37 +144,78 @@
                             <li class="nav-item">
                                 <a href="{{ route('kas.bayar') }}" class="nav-link" id="Input">
                                     <i class="fas fa-file-alt nav-icon"></i>
-                                    <p>Input kas</p>
+                                    <p>Input Pemasukan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('kas') }}" class="nav-link" id="DataKas">
                                     <i class="fas fa-file-alt nav-icon"></i>
-                                    <p>Data kas</p>
+                                    <p>Data Pemasukan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('rapot-kelas') }}" class="nav-link" id="Rapot">
+                                <a href="{{ route('kas.pengluaran') }}" class="nav-link" id="Input_pengluaran">
+                                    <i class="fas fa-file-alt nav-icon"></i>
+                                    <p>Input Pengluaran</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pengluaran.pinjam') }}" class="nav-link" id="pinjam">
                                     <i class="fas fa-file-alt nav-icon"></i>
                                     <p>Data Pinjam</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('predikat') }}" class="nav-link" id="Deskripsi">
+                                <a href="{{ route('pengluaran.darurat') }}" class="nav-link" id="darurat">
                                     <i class="fas fa-file-alt nav-icon"></i>
                                     <p>Data Darurat</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('predikat') }}" class="nav-link" id="Deskripsi">
+                                <a href="{{ route('pengluaran.amal') }}" class="nav-link" id="amal">
                                     <i class="fas fa-file-alt nav-icon"></i>
                                     <p>Data Amal</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pengluaran.lain') }}" class="nav-link" id="lain">
+                                    <i class="fas fa-file-alt nav-icon"></i>
+                                    <p>Data Lain</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pengluaran.acara') }}" class="nav-link" id="acara">
+                                    <i class="fas fa-file-alt nav-icon"></i>
+                                    <p>Data Acara</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('predikat') }}" class="nav-link" id="Deskripsi">
                                     <i class="fas fa-file-alt nav-icon"></i>
                                     <p>Laporan</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview" id="pengajuan">
+                        <a href="#" class="nav-link" id="pengajuan">
+                            <i class="nav-icon fas fa-file-signature"></i>
+                            <p>
+                                Pengjauan
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview ml-4">
+                            <li class="nav-item">
+                                <a href="{{ route('pengajuan') }}" class="nav-link" id="pemasukan">
+                                    <i class="nav-icon fas fa-clipboard"></i>
+                                    <p>Pemasukan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('peminjaman') }}" class="nav-link" id="Pinjaman">
+                                    <i class="nav-icon fas fa-clipboard"></i>
+                                    <p>Peminjaman</p>
                                 </a>
                             </li>
                         </ul>
@@ -205,48 +246,6 @@
                                 </a>
                     </li>
                     
-                     <!-- <li class="nav-item has-treeview" id="liNilaiGuru">
-                        <a href="#" class="nav-link" id="NilaiGuru">
-                            <i class="nav-icon fas fa-file-signature"></i>
-                            <p>
-                                Nilai
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview ml-4">
-                            <li class="nav-item">
-                                <a href="{{ route('ulangan.index') }}" class="nav-link" id="UlanganGuru">
-                                    <i class="fas fa-file-alt nav-icon"></i>
-                                    <p>Entry Nilai Ulangan</p>
-                                </a>
-                            </li>
-                            @if (
-                                Auth::user()->guru(Auth::user()->id_card)->mapel->nama_mapel == "Pendidikan Agama dan Budi Pekerti" ||
-                                Auth::user()->guru(Auth::user()->id_card)->mapel->nama_mapel == "Pendidikan Pancasila dan Kewarganegaraan"
-                            )
-                                <li class="nav-item">
-                                    <a href="{{ route('sikap.index') }}" class="nav-link" id="SikapGuru">
-                                        <i class="fas fa-file-alt nav-icon"></i>
-                                        <p>Entry Nilai Sikap</p>
-                                    </a>
-                                </li>
-                            @else
-                            @endif
-                            <li class="nav-item">
-                                <a href="{{ route('rapot.index') }}" class="nav-link" id="RapotGuru">
-                                    <i class="fas fa-file-alt nav-icon"></i>
-                                    <p>Entry Nilai Rapot</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('nilai.index') }}" class="nav-link" id="DesGuru">
-                                    <i class="fas fa-file-alt nav-icon"></i>
-                                    <p>Deskripsi Predikat</p>
-                                </a>
-                            </li>
-                        </ul>
-                   
-                    </li> -->
                 @elseif (Auth::user()->role == 'Siswa' && Auth::user()->siswa(Auth::user()->no_induk))
                     <li class="nav-item has-treeview">
                         <a href="{{ url('/') }}" class="nav-link" id="Home">
@@ -254,23 +253,66 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a href="{{ route('jadwal.siswa') }}" class="nav-link" id="JadwalSiswa">
-                            <i class="fas fa-calendar-alt nav-icon"></i>
-                            <p>Jadwal</p>
-                        </a>
-                    </li> -->
+
                     <li class="nav-item">
                         <a href="{{ route('show.siswa') }}" class="nav-link" id="DataKas">
                             <i class="fas fa-file-alt nav-icon"></i>
                             <p>Data Kas</p>
                         </a>
                     </li>
+                    
                     <li class="nav-item">
                         <a href="{{ route('bayar.siswa') }}" class="nav-link" id="Input">
                             <i class="fas fa-file-alt nav-icon"></i>
                             <p>Bayar</p>
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('pengajuan.pinjaman') }}" class="nav-link" id="pengajuanpinjam">
+                            <i class="fas fa-file-alt nav-icon"></i>
+                            <p>Pengajuan Dana Pinjam</p>
+                        </a>
+                    </li>
+                    <li class="nav-item has-treeview" id="likas">
+                        <a href="#" class="nav-link" id="kas">
+                            <i class="nav-icon fas fa-file-signature"></i>
+                            <p>
+                                Pengluaran
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview ml-4">
+                            <li class="nav-item">
+                                <a href="{{ route('pengluaran.pinjaman.detail') }}" class="nav-link" id="pinjam">
+                                    <i class="fas fa-file-alt nav-icon"></i>
+                                    <p>Data Pinjam</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pengluaran.darurat') }}" class="nav-link" id="darurat">
+                                    <i class="fas fa-file-alt nav-icon"></i>
+                                    <p>Data Darurat</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pengluaran.amal') }}" class="nav-link" id="amal">
+                                    <i class="fas fa-file-alt nav-icon"></i>
+                                    <p>Data Amal</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pengluaran.lain') }}" class="nav-link" id="lain">
+                                    <i class="fas fa-file-alt nav-icon"></i>
+                                    <p>Data Lain</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pengluaran.acara') }}" class="nav-link" id="acara">
+                                    <i class="fas fa-file-alt nav-icon"></i>
+                                    <p>Data Acara</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 @else
                     <li class="nav-item has-treeview">

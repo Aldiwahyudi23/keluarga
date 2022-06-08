@@ -22,6 +22,7 @@ class CreatePengluaran extends Migration
             $table->string('jumlah');
             $table->string('keterangan');
             $table->string('tanggal');
+            $table->string('program');
             $table->timestamps();
         });
     }
