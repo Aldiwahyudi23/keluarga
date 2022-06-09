@@ -12,15 +12,15 @@
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-        @csrf
+
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
             <form action="{{ route('pengajuan_pemasukan') }}" method="post">
             @csrf
-            @foreach ($anggota as $data)
-                <input type="hidden" name="anggota_id" value="{{ $data->id }}">
-            @endforeach
+
+                <input type="hidden" name="anggota_id" value="{{Auth::user()->id}}">
+
             <div class="form-group">
                 <label for="jumlah">jumlah</label>
                 <input type="text" name="jumlah" class="form-control @error('jumlah') is-invalid @enderror" value="{{old('jumlah')}}">

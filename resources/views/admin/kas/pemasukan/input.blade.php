@@ -16,7 +16,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-            <form action="{{ route('kas.store') }}" method="post">
+            <form action="{{ route('kas.store.input') }}" method="post">
             @csrf
             <div class="form-group">
                         <label for="anggota_id">Anggota</label>

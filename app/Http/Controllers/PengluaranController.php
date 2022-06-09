@@ -168,7 +168,7 @@ class PengluaranController extends Controller
     public function peminjaman_detail()
     {
         $anggota = Siswa::where('id', Auth::user()->id)->first();
-        $pinjam = Pengluaran::where('siswa_id', $anggota->id)->orderBy('siswa_id')->get();
+        $pinjam = Pengluaran::where('siswa_id', Auth::user()->id)->orderBy('siswa_id')->get();
         return view('siswa.kas.datapinjaman', compact('anggota','pinjam'));
  
     }

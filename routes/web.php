@@ -168,6 +168,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pengajuan', 'KasController@pengajuan')->name('pengajuan');
     Route::get('/pengajuan/detail/{id}', 'KasController@pengajuan_detail')->name('pengajuan.detail');
     Route::post('/kas/store', 'KasController@store')->name('kas.store');
+    Route::post('/kas/store/input', 'KasController@store_input')->name('kas.store.input');
     Route::get('/pengajuan/peminjaman', 'KasController@peminjaman')->name('peminjaman');
     Route::get('/pengajuan/pinjaman/detail/{id}', 'KasController@pinjaman_detail')->name('pengajuan.pinjaman.detail');
     Route::post('/simpan/pinjaman', 'PengluaranController@pengluaran_pinjaman')->name('simpan.pinjaman');

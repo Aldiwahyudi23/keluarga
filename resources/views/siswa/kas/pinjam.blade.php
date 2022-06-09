@@ -20,9 +20,7 @@
             @csrf
             <div class="form-group">
             <input type="hidden" id="id" name="id">
-            @foreach ($anggota as $data)
-                <input type="hidden" name="anggota_id" value="{{ $data->id }}">
-            @endforeach
+                <input type="hidden" name="anggota_id" value="{{Auth::user()->id}}">
             <div class="form-group">
                 <label for="jumlah">jumlah</label>
                 <input type="text" name="jumlah" class="form-control @error('jumlah') is-invalid @enderror" value="{{old('jumlah')}}">

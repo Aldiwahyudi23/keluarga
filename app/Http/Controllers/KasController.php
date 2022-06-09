@@ -28,13 +28,13 @@ class KasController extends Controller
         $tahun=date('Y');
         $hari = Hari::all();
         $pemasukan = Pemasukan::all();
-        return view ('admin.kas.index', compact('pemasukan','hari','tahun'));
+        return view ('admin.kas.pemasukan.index', compact('pemasukan','hari','tahun'));
     }
     public function input()
     {
         $pemasukan = Pemasukan::all();
         $anggota = User::all();
-        return view ('admin.kas.input', compact('anggota','pemasukan'));
+        return view ('admin.kas.pemasukan.input', compact('anggota','pemasukan'));
     }
     public function show($nama_hari)
     {
@@ -43,7 +43,7 @@ class KasController extends Controller
         $pemasukan = Pemasukan::where('tanggal',$nama_hari)->orderBy('tanggal', 'asc')->get();
         // $siswa = Siswa::all();
         // $pemasukan = Pemasukan::groupBy('tanggal');
-        return view ('admin.kas.show', compact('siswa','pemasukan'));
+        return view ('admin.kas.pemasukan.show', compact('siswa','pemasukan'));
     }
     public function pengajuan()
     {
@@ -99,6 +99,33 @@ class KasController extends Controller
         return redirect('pengajuan')->with('success', 'Data anu tos di tarima bakal lebet kana database !');
     }
 
+    public function store_input(Request $request)
+    {
+        $tahun=date('M');
+        $this->validate($request, [
+            'jumlah' => 'required',
+            'tanggal' => 'required',
+            'keterangan' => 'required'
+        ]);
+
+        Pemasukan::updateOrCreate(
+            [
+                'id' => $request->id
+            ],
+            [
+                'kelas_id' => '3',
+                'mapel_id' => '3',
+                'guru_id' => '3',
+                'siswa_id' => $request->anggota_id,
+                'jumlah' => $request->jumlah,
+                'tanggal' => $request->tanggal,
+                'keterangan' => $request->keterangan,
+            ]
+        );
+
+        return redirect('kas')->with('success', 'Data anu tos di tarima bakal lebet kana database !');
+    }
+
     // siswa
 
     public function anggota_index()
@@ -115,8 +142,9 @@ class KasController extends Controller
     public function anggota_input()
     {
         $pemasukan = Pemasukan::all();
-        $anggota = User::all();
-        return view ('siswa.kas.input', compact('anggota','pemasukan'));
+ 
+
+        return view ('siswa.kas.input', compact('pemasukan'));
     }
     public function anggota_show()
     {
@@ -125,14 +153,15 @@ class KasController extends Controller
         $jadwal = Jadwal::where('kelas_id', $kelas->id)->orderBy('mapel_id')->get();
         $mapel = $jadwal->groupBy('mapel_id');
 
-        $anggota = Siswa::where('id', Auth::user()->id)->first();
-        $pemasukan = Pemasukan::where('siswa_id', $anggota->id)->orderBy('siswa_id')->get();
+        $anggota = Auth::user('id')->first();
+        $pemasukan = Pemasukan::where('siswa_id', Auth::user()->id)->orderBy('siswa_id')->get();
         return view('siswa.kas.show', compact('siswa', 'kelas', 'mapel','pemasukan'));
  
     }
     public function anggota_store(Request $request)
     {
-        $anggota = Siswa::where('id', Auth::user()->id)->first();
+
+        $anggota = Auth::user()->id->first();
         $this->validate($request, [
             'jumlah' => 'required',
             'tanggal' => 'required',
@@ -158,7 +187,7 @@ class KasController extends Controller
     }
     public function anggota_pengajuan(Request $request)
     {
-        $anggota = Siswa::where('id', Auth::user()->id)->first();
+
         $this->validate($request, [
             'jumlah' => 'required',
             'tanggal' => 'required',
@@ -175,7 +204,7 @@ class KasController extends Controller
                 'guru_id' => '3',
                 'kategori' => 'pemasukan',
                 'program' => '0',
-                'siswa_id' =>$anggota->id,
+                'siswa_id' =>$request->anggota_id,
                 'jumlah' => $request->jumlah,
                 'tanggal' => $request->tanggal,
                 'keterangan' => $request->keterangan,
