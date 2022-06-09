@@ -27,14 +27,9 @@
                                     <p>Dashboard</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.home') }}" class="nav-link" id="AdminHome">
-                                    <i class="fas fa-home nav-icon"></i>
-                                    <p>Dashboard Admin</p>
-                                </a>
-                            </li>
                         </ul>
                     </li>
+                    @if (Auth::user()->role == "Admin")
                     <li class="nav-item has-treeview" id="liMasterData">
                         <a href="#" class="nav-link" id="MasterData">
                             <i class="nav-icon fas fa-edit"></i>
@@ -82,7 +77,6 @@
                             </li>
                         </ul>
                     </li>
-                    @if (Auth::user()->role == "Admin")
                         <li class="nav-item has-treeview" id="liViewTrash">
                             <a href="#" class="nav-link" id="ViewTrash">
                                 <i class="nav-icon fas fa-recycle"></i>
@@ -132,6 +126,19 @@
                         </li>
                     @else
                     @endif
+                    <li class="nav-item">
+                        <a href="{{ route('show.siswa') }}" class="nav-link" id="DataKas">
+                            <i class="fas fa-file-alt nav-icon"></i>
+                            <p>Data Kas</p>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{{ route('bayar.siswa') }}" class="nav-link" id="Input">
+                            <i class="fas fa-file-alt nav-icon"></i>
+                            <p>Bayar</p>
+                        </a>
+                    </li>
                     <li class="nav-item has-treeview" id="likas">
                         <a href="#" class="nav-link" id="kas">
                             <i class="nav-icon fas fa-file-signature"></i>

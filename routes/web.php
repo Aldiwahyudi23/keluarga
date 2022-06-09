@@ -53,23 +53,25 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/pengluaran/lainn', 'PengluaranController@lain')->name('pengluaran.lain');
   Route::get('/pengluaran/kas', 'PengluaranController@kas')->name('pengluaran.kas');
 
+  Route::get('/pemasukan/anggota', 'KasController@anggota_index')->name('pemasukan.siswa');
+  Route::get('/pemasukan/anggota/detail', 'KasController@anggota_show')->name('show.siswa');
+  Route::get('/bayar/anggota', 'KasController@anggota_input')->name('bayar.siswa');
+  Route::post('/bayar/store', 'KasController@anggota_store')->name('bayar.store');
+  Route::post('/bayar/siswa', 'KasController@anggota_store')->name('bayar.store');
+
+  Route::post('/bayar/pengajuan', 'KasController@anggota_pengajuan')->name('pengajuan_pemasukan');
+
+  Route::get('/pengluaran/pinjamanan', 'PengluaranController@pinjam')->name('pengluaran.pinjaman');
+  Route::get('/pengajuan/pinjaman', 'PengluaranController@peminjaman')->name('pengajuan.pinjaman');
+  Route::post('/pengajuan/pinjaman/store', 'PengluaranController@peminjaman_store')->name('peminjaman.store');
+  Route::get('/pengajuan/pinjaman/detail', 'PengluaranController@peminjaman_detail')->name('pengluaran.pinjaman.detail');
+
   Route::middleware(['siswa'])->group(function () {
     Route::get('/jadwal/anggota', 'JadwalController@siswa')->name('jadwal.siswa');
     Route::get('/ulangan/anggota', 'UlanganController@siswa')->name('ulangan.siswa');
     Route::get('/sikap/anggota', 'SikapController@siswa')->name('sikap.siswa');
     Route::get('/rapot/anggota', 'RapotController@siswa')->name('rapot.siswa');
-    Route::get('/pemasukan/anggota', 'KasController@anggota_index')->name('pemasukan.siswa');
-    Route::get('/pemasukan/anggota/detail', 'KasController@anggota_show')->name('show.siswa');
-    Route::get('/bayar/anggota', 'KasController@anggota_input')->name('bayar.siswa');
-    Route::post('/bayar/store', 'KasController@anggota_store')->name('bayar.store');
-    Route::post('/bayar/siswa', 'KasController@anggota_store')->name('bayar.store');
 
-    Route::post('/bayar/pengajuan', 'KasController@anggota_pengajuan')->name('pengajuan_pemasukan');
-
-    Route::get('/pengluaran/pinjamanan', 'PengluaranController@pinjam')->name('pengluaran.pinjaman');
-    Route::get('/pengajuan/pinjaman', 'PengluaranController@peminjaman')->name('pengajuan.pinjaman');
-    Route::post('/pengajuan/pinjaman/store', 'PengluaranController@peminjaman_store')->name('peminjaman.store');
-    Route::get('/pengajuan/pinjaman/detail', 'PengluaranController@peminjaman_detail')->name('pengluaran.pinjaman.detail');
   });
 
   Route::middleware(['guru'])->group(function () {
